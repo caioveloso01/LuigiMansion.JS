@@ -1,0 +1,89 @@
+/*Utilizando * para "resetar" toda a pagina, já que no css já vem com conf. pré-definidas*/
+* {
+  padding: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/*Local na onde o jogo vai ficar, o seu cenario*/
+.game-board {
+  width: 0%;
+  height: 500px;
+  border: 1px solid #333;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden; /*Escolhido hidden, quando o fantasma sumir da tela ele ficar invisivel, não utilizando uma barra de rolagem para ver na onde ele está*/
+}
+/*animação do fantasma vindo da direita a esquerda*/
+@keyframes fantasma-animation {
+  from {
+    right: -80px;
+  }
+  to {
+    right: 100%;
+  }
+}
+/*Aqui vamos definir o tamanho e o local na onde o fantasma vai ficar, se baseando nisso vamos seguir fazendo o jogo */
+.fantasma {
+  position: absolute;
+  bottom: 0;
+  width: 150px;
+  right: 0;
+  animation: fantasma-animation 3s infinite linear;
+}
+.luigi {
+  width: 150px;
+  position: absolute;
+  bottom: 0;
+}
+
+.pulo {
+  animation: luigi-animation 800ms ease-out;
+}
+
+@keyframes luigi-animation {
+  0% {
+    bottom: 0;
+  }
+
+  40% {
+    bottom: 250px;
+  }
+
+  50% {
+    bottom: 250px;
+  }
+
+  60% {
+    bottom: 300px;
+  }
+
+  100% {
+    bottom: 0;
+  }
+}
+
+.cenario {
+  position: relative;
+  width: 100;
+  height: 100;
+  overflow: hidden;
+}
+
+.cenario img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200vw;
+  height: 100vh;
+  animation: movimento-infinito 10s linear infinite;
+}
+
+@keyframes movimento-infinito {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100vw;
+  }
+}
